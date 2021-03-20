@@ -23,6 +23,15 @@
             placeholder="Content"></textarea>
         </div>
       </div>
+      <div class="control-group">
+        <div class="form-group">
+          <label for="categories">Choose a category:</label>
+          <select [(ngModel)]= "selectedCategory" name="categories">
+            <option *ngFor="let c of categories1" [ngValue]="c.categoryName">{{c.categoryName}}</option>
+          </select>
+          
+        </div>
+      </div>
       <br>
       <app-loading *ngIf="processing && (!success && !failure)"></app-loading>
       <div class="alert alert-success pointer" *ngIf="success" routerLink="/home" role="alert">

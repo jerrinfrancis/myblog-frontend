@@ -17,6 +17,7 @@ import { MastheadComponent } from "./masthead/masthead.component";
 import { PreviewPostComponent } from "./preview-post/preview-post.component";
 import { AuthorPostComponent } from "./author-post/author-post.component";
 import { LoadingComponent } from "./loading/loading.component";
+import { NewCategoryComponent } from "./new-category/new-category.component";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LoadingComponent } from "./loading/loading.component";
     MastheadComponent,
     PreviewPostComponent,
     AuthorPostComponent,
-    LoadingComponent
+    LoadingComponent,
+    NewCategoryComponent
   ],
   imports: [
     BrowserModule,
