@@ -4,6 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
 import { Http, HttpModule } from "@angular/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { CKEditorModule } from 'ckeditor4-angular';
 
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./home/home.component";
@@ -18,6 +19,8 @@ import { PreviewPostComponent } from "./preview-post/preview-post.component";
 import { AuthorPostComponent } from "./author-post/author-post.component";
 import { LoadingComponent } from "./loading/loading.component";
 import { NewCategoryComponent } from "./new-category/new-category.component";
+import { EditorBasedPostComponent } from "./editorbased-post/editorbased-post.component";
+
 
 @NgModule({
   declarations: [
@@ -33,14 +36,16 @@ import { NewCategoryComponent } from "./new-category/new-category.component";
     PreviewPostComponent,
     AuthorPostComponent,
     LoadingComponent,
-    NewCategoryComponent
+    NewCategoryComponent,
+    EditorBasedPostComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CKEditorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -11,6 +11,7 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
+    "skipLibCheck": true, //added to avoid ckeditor error an accessor cannot be declared in an ambient context ckeditor
     "typeRoots": [
       "node_modules/@types"
     ],

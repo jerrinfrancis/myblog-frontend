@@ -7,6 +7,7 @@ import { PastPostsComponent } from "src/app/past-posts/past-posts.component";
 import { AuthorPostComponent } from "src/app/author-post/author-post.component";
 import { ViewPostComponent } from "src/app/view-post/view-post.component";
 import { NewCategoryComponent } from "./new-category/new-category.component";
+import { EditorBasedPostComponent } from "./editorbased-post/editorbased-post.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" }, //default route
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: "posts", component: PastPostsComponent },
   { path: "post/:id", component: ViewPostComponent },
   { path: "author-post", component: AuthorPostComponent },
-  {path: "new-category", component: NewCategoryComponent}
+  {path: "new-category", component: NewCategoryComponent},
+  {path:"author-post-new", component: EditorBasedPostComponent}
 ];
 
 @NgModule({
