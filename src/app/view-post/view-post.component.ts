@@ -4,6 +4,8 @@ import { ActivatedRoute } from "@angular/router";
 import { BlogPostService } from "src/app/service/blog-post.service";
 import { BlogPost } from "src/app/models/blog-post";
 import { JsonPipe } from "@angular/common";
+import { DomSanitizer } from "@angular/platform-browser";
+import { environment } from "../../environments/environment";
 
 @Component({
   selector: "app-view-post",
@@ -13,11 +15,13 @@ import { JsonPipe } from "@angular/common";
 export class ViewPostComponent implements OnInit {
   loading: boolean = true;
   post: BlogPost;
+  IS_PROD: boolean = environment.production
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private postService: BlogPostService
+    private postService: BlogPostService,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit() {
@@ -31,7 +35,9 @@ export class ViewPostComponent implements OnInit {
       this.router.navigate(["/home"]);
     });
   }
-
+  public createTrustedHtml(blogContent: string) {
+    return this.sanitizer.bypassSecurityTrustHtml(blogContent);
+ }
   private getPost(): void {
     const id = this.route.snapshot.paramMap.get("id"); //+ is JS conversion from string to int (which id should be)
     console.log("id: " + id);

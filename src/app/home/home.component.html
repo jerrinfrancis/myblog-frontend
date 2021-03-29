@@ -8,12 +8,15 @@
     </div>
 
     <div class="clearfix">
-      <a class="btn btn-secondary float-left pointer" routerLink="/author-post">
+      <a class="btn btn-secondary float-left pointer" *ngIf="!IS_PROD" routerLink="/author-post-new">
         New Post
         <i class="fa fa-plus" aria-hidden="true"></i></a>
-      <a class="btn btn-secondary float-right pointer" routerLink="/posts">
+      <a class="btn btn-secondary float-right pointer" *ngIf="!IS_PROD" routerLink="/posts">
         All Posts &rarr;
       </a>
+    </div>
+    <div class="clearfix text-center mx-auto" *ngIf="IS_PROD">
+      <a class="btn btn-secondary pointer"  routerLink="/posts">All Posts</a>
     </div>
   </div>
 </div>

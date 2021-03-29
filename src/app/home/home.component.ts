@@ -3,6 +3,10 @@ import { Router } from "@angular/router";
 
 import { BlogPostService } from "../service/blog-post.service";
 import { BlogPost } from "../models/blog-post";
+import { environment } from "../../environments/environment";
+
+
+
 
 @Component({
   selector: "app-home",
@@ -12,6 +16,7 @@ import { BlogPost } from "../models/blog-post";
 export class HomeComponent implements OnInit {
   loading: boolean = true;
   posts: BlogPost[];
+  IS_PROD: boolean = environment.production
 
   constructor(private postService: BlogPostService, private router: Router) {}
 

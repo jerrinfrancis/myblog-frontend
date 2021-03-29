@@ -1,33 +1,39 @@
-<div [(innerHtml)]="post.content"></div>
-<!--
+<!--<div [(innerHtml)]="post.content"></div>-->
+<!--<div [innerHtml]="createTrustedHtml(post.content)"></div>-->
+<!--<div class="editor-preview">
+  <h2>Rendered content</h2>
+  <div [(innerHtml)]="createTrustedHtml(post.content)" #preview></div>
+</div> -->
+
 <div class="row" *ngIf="loading">
   <div class="col-12 text-center">
     <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
     <span class="sr-only">Loading...</span>
   </div>
 </div>
+
 <div class="row" *ngIf="!loading">
 
   <div class="col-lg-8 col-md-10 mx-auto">
-    <h1 [textContent]="post.title"></h1>
+    <!-- <h1 [textContent]="post.title"></h1> -->
 
-    <h3 class="post-content" [textContent]="post.content"></h3>
-
+ <p [innerHtml]="createTrustedHtml(post.content)"><p>
+      
     <p style="color: grey; text-align: center;" class="post-meta"><i>Posted by </i>
       <i><a href="#" style="color: grey; text-decoration: none;" [textContent]="post.author"></a></i>
     </p>
   </div>
 </div>
--->
+
   <!-- Pager -->
 
 
 <!-- Delete Button -->
-<!--
-<div class="clearfix text-center mx-auto">
+
+<div class="clearfix text-center mx-auto" *ngIf="!IS_PROD">
   <a (click)="deletePost();" class="btn btn-light pointer">
     Delete Post
     <i class="" aria-hidden="true"></i></a>
 </div>
--->
+
 
