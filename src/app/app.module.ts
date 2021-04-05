@@ -16,10 +16,10 @@ import { NavbarComponent } from "./navbar/navbar.component";
 import { FooterComponent } from "./footer/footer.component";
 import { MastheadComponent } from "./masthead/masthead.component";
 import { PreviewPostComponent } from "./preview-post/preview-post.component";
-import { AuthorPostComponent } from "./author-post/author-post.component";
 import { LoadingComponent } from "./loading/loading.component";
 import { NewCategoryComponent } from "./new-category/new-category.component";
 import { EditorBasedPostComponent } from "./editorbased-post/editorbased-post.component";
+import { EditPostComponent } from "./edit-post/edit-post.component";
 
 
 @NgModule({
@@ -30,11 +30,11 @@ import { EditorBasedPostComponent } from "./editorbased-post/editorbased-post.co
     ContactComponent,
     PastPostsComponent,
     ViewPostComponent,
+    EditPostComponent,
     NavbarComponent,
     FooterComponent,
     MastheadComponent,
     PreviewPostComponent,
-    AuthorPostComponent,
     LoadingComponent,
     NewCategoryComponent,
     EditorBasedPostComponent

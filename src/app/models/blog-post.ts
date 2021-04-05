@@ -3,6 +3,7 @@ export class BlogPost {
     //_id: string;
     slug: string;
     content: string;
+    contentPreview: string;
     title: string;
     author: string;
     category: string[] = [];

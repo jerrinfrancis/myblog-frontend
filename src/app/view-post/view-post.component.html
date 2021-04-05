@@ -31,9 +31,12 @@
 <!-- Delete Button -->
 
 <div class="clearfix text-center mx-auto" *ngIf="!IS_PROD">
-  <a (click)="deletePost();" class="btn btn-light pointer">
+  <a (click)="deletePost();" class="btn btn-light pointer float-left">
     Delete Post
     <i class="" aria-hidden="true"></i></a>
+    <a (click)="editPost();" class="btn btn-light pointer float-right">
+      Edit Post
+      <i class="" aria-hidden="true"></i></a>
 </div>
 
 

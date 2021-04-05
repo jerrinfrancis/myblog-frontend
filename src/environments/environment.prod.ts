@@ -1,9 +1,10 @@
 export const environment = {
   production: true,
   api: {
-    base: "http://localhost:8080/",
+    base: "",
     entries: "posts",
     entry: "post",
+    editentry: "editpost",
     categories : "categories",
     category : "category"
   }

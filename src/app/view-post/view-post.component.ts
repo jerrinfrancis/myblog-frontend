@@ -6,6 +6,8 @@ import { BlogPost } from "src/app/models/blog-post";
 import { JsonPipe } from "@angular/common";
 import { DomSanitizer } from "@angular/platform-browser";
 import { environment } from "../../environments/environment";
+import { ThrowStmt } from "@angular/compiler";
+import { ContentTransferService } from "../service/content-transfer.service";
 
 @Component({
   selector: "app-view-post",
@@ -21,11 +23,18 @@ export class ViewPostComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private postService: BlogPostService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private contentTransSrv: ContentTransferService
   ) {}
 
   ngOnInit() {
-    this.getPost();
+    this.post = this.contentTransSrv.getData();
+    if (this.post){
+      this.loading = false;
+    }else{
+      this.getPost()
+    }
+
   }
 
   public deletePost() {
@@ -37,6 +46,10 @@ export class ViewPostComponent implements OnInit {
   }
   public createTrustedHtml(blogContent: string) {
     return this.sanitizer.bypassSecurityTrustHtml(blogContent);
+ }
+ public editPost(): void{
+   console.log("slug is present" + this.post.slug)
+   this.router.navigateByUrl("/editpost/" + this.post.slug )
  }
   private getPost(): void {
     const id = this.route.snapshot.paramMap.get("id"); //+ is JS conversion from string to int (which id should be)

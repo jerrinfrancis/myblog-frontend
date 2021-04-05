@@ -24,7 +24,15 @@
       </div>
       <div class="control-group">
         <div class="form-group">
-          <label for="categories">Choose a category:</label>
+          <label>Content Preview</label>
+          <input type="text" [(ngModel)]="post.contentPreview" [disabled]="processing" name="contentPreview" class="form-control"  maxlength="100"
+            placeholder="Write 50 character preview for your post">
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="form-group">
+          <label for="categories">Choose a category</label>
+          <br>
           <select [(ngModel)]= "selectedCategory" name="categories">
             <option *ngFor="let c of categories" [ngValue]="c.categoryName">{{c.categoryName}}</option>
           </select>

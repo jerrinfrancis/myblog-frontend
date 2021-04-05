@@ -18,22 +18,22 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
+        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
           <a class="nav-link pointer" routerLink="home">Home</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
           <a class="nav-link pointer" routerLink="about">About</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
           <a class="nav-link pointer" routerLink="posts">Posts</a>
         </li>
-        <li class="nav-item" *ngIf="!IS_PROD">
+        <li class="nav-item" *ngIf="!IS_PROD" data-toggle="collapse" data-target=".navbar-collapse.show">
           <a class="nav-link pointer" routerLink="new-category">Create New Category</a>
         </li>
-        <li class="nav-item" *ngIf="!IS_PROD">
+        <li class="nav-item" *ngIf="!IS_PROD" data-toggle="collapse" data-target=".navbar-collapse.show">
           <a class="nav-link pointer" routerLink="author-post-new">Create New Post</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
           <a class="nav-link pointer" routerLink="contact">Contact</a>
         </li>
       </ul>

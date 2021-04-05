@@ -13,9 +13,11 @@ const API_URL = environment.api.base;
 export class ApiService {
   constructor(private http: Http) {}
 
-  public Get(endpoint: string): Observable<any> {
+  public Get(endpoint: string, limit: string): Observable<any> {
+    if (limit == 'ALL' || limit == 'NA'){
+      console.log("limit did not reached", limit)
     return this.http
-      .get(API_URL + endpoint)
+      .get(API_URL + endpoint )
       .pipe(
         map(response => {
           var json = response.json();
@@ -23,11 +25,28 @@ export class ApiService {
         })
       )
       .pipe(catchError(this.handleError));
+  }else{
+    console.log("limit reached", API_URL + endpoint + '?limit=' + limit)
+    return this.http
+    .get(API_URL + endpoint + '?limit=' + limit)
+    .pipe(
+      map(response => {
+        var json = response.json();
+        return json;
+      })
+    )
+    .pipe(catchError(this.handleError));
   }
+}
 
   public Post(endpoint: string, data: any): Observable<any> {
     return this.http
       .post(API_URL + endpoint, data)
+      .pipe(catchError(this.handleError));
+  }
+  public Patch(endpoint: string, data: any): Observable<any> {
+    return this.http
+      .patch(API_URL + endpoint, data)
       .pipe(catchError(this.handleError));
   }
 

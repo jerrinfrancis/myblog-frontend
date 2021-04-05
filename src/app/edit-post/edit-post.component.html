@@ -5,29 +5,38 @@
       <div class="control-group">
         <div class="form-group">
           <label>Title</label>
-          <input type="text" [(ngModel)]="post.title" [disabled]="processing" name="title" class="form-control"
-            placeholder="Title">
+          <input type="text" value={{post.title}} disabled=true name="title" class="form-control"
+            placeholder="Title of the blog">
         </div>
       </div>
       <div class="control-group">
         <div class="form-group">
           <label>Author</label>
-          <input type="text" [(ngModel)]="post.author" [disabled]="processing" name="author" class="form-control"
+          <input type="text" value={{post.author}} disabled=true name="author" class="form-control"
             placeholder="Author">
         </div>
       </div>
       <div class="control-group">
         <div class="form-group">
           <label>Content</label>
-          <textarea rows="5" [(ngModel)]="post.content" [disabled]="processing" name="content" class="form-control"
-            placeholder="Content"></textarea>
+          <ckeditor [(data)]="post.content" [readOnly]="processing"></ckeditor>
         </div>
       </div>
       <div class="control-group">
         <div class="form-group">
-          <label for="categories">Choose a category:</label>
-          <select [(ngModel)]= "selectedCategory" name="categories">
-            <option *ngFor="let c of categories1" [ngValue]="c.categoryName">{{c.categoryName}}</option>
+          <label>Content Preview</label>
+          <input type="text" [(ngModel)]="post.contentPreview" [disabled]="processing" name="contentPreview" class="form-control"  maxlength="100"
+            placeholder="Write 100 character preview for your post">
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="form-group">
+          <label for="categories">Choose a category</label>
+          <br>
+          <!-- <select [(ngModel)]= "selectedCategory" name="categories" disabled=true> -->
+            <select name="categories" disabled=true>
+            <option selected="selected">{{post.category[0]}}</option>
+            <!-- <option *ngFor="let c of categories" [ngValue]="c.categoryName">{{c.categoryName}}</option> -->
           </select>
           
         </div>
@@ -42,7 +51,7 @@
       </div>
       <div class="form-group text-center mx-auto" *ngIf="!submitted">
         <button class="btn btn-secondary" (click)="submit();">Submit</button>
-      </div>
+      </div>      
     </form>
   </div>
 </div>

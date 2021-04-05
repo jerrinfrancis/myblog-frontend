@@ -18,7 +18,7 @@ export class PastPostsComponent implements OnInit {
   }
 
   private getPosts(): void {
-    this.postService.GetPosts().subscribe(posts => {
+    this.postService.GetPosts('ALL').subscribe(posts => {
       this.posts = posts;
       this.loading = false;
     });

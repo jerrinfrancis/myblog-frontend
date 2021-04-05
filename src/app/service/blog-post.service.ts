@@ -13,15 +13,15 @@ import { Observable } from "rxjs";
 export class BlogPostService {
   constructor(private apiService: ApiService) {}
 
-  public GetPosts(): Observable<BlogPost[]> {
-    return this.apiService.Get(environment.api.entries).pipe(
+  public GetPosts(limit: string): Observable<BlogPost[]> {
+    return this.apiService.Get(environment.api.entries, limit).pipe(
       map(json => {
         return json.map(post => new BlogPost(post));
       })
     );
   }
 public GetCategories(): Observable<Category[]>{
-  return this.apiService.Get(environment.api.categories).pipe(
+  return this.apiService.Get(environment.api.categories, 'NA').pipe(
     map(json => {
       //console.log(json)
       return json.map(category => new Category(category));
@@ -29,7 +29,7 @@ public GetCategories(): Observable<Category[]>{
   );
 }
   public GetPost(id: string): Observable<BlogPost> {
-    return this.apiService.Get(environment.api.entries + "/" + id).pipe(
+    return this.apiService.Get(environment.api.entries + "/" + id, 'NA').pipe(
       map(json => {
         return new BlogPost(json);
       })
@@ -38,6 +38,10 @@ public GetCategories(): Observable<Category[]>{
 
   public CreatePost(post: BlogPost): Observable<any> {
     return this.apiService.Post(environment.api.entry, post);
+  }
+
+  public EditPost(post: BlogPost): Observable<any> {
+    return this.apiService.Patch(environment.api.editentry, post);
   }
 
   public CreateCategory(category: Category): Observable<any> {
