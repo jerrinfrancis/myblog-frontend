@@ -1,11 +1,12 @@
 export const environment = {
   production: true,
   api: {
-    base: "",
+    base: "https://api.jerrinfrancis.com/",
     entries: "posts",
     entry: "post",
     editentry: "editpost",
     categories : "categories",
-    category : "category"
+    category : "category",
+    contact: "contactJerrin"
   }
 };

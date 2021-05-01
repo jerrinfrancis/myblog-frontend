@@ -5,12 +5,13 @@
 export const environment = {
   production: false,
   api: {
-    base: "http://localhost:8080/",
+    base: "http://localhost:8085/",
     entries: "posts",
     entry: "post",
     editentry: "editpost",
     categories : "categories",
-    category : "category"
+    category : "category",
+    contact: "contactJerrin"
   }
 };
 

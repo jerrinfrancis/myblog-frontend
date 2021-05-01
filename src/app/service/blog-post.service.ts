@@ -6,6 +6,7 @@ import { environment } from "../../environments/environment";
 import { BlogPost } from "../models/blog-post";
 import { Category } from "../models/category"
 import { Observable } from "rxjs";
+import { Contact } from "../models/contact";
 
 @Injectable({
   providedIn: "root"
@@ -48,6 +49,9 @@ public GetCategories(): Observable<Category[]>{
     return this.apiService.Post(environment.api.category, category);
   }
 
+  public SendContact(contact: Contact): Observable<any> {
+    return this.apiService.Post(environment.api.contact, contact);
+  }
   public deletePost(id) {
     return this.apiService.Delete(environment.api.entries + "/" + id);
   }
